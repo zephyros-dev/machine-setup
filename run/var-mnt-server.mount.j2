@@ -1,0 +1,13 @@
+[Unit]
+Description=Server storage mount
+Requires=systemd-networkd.service
+
+[Mount]
+What=//server.lan/storage
+Where=/var/mnt/server
+Type=cifs
+Options=rw,credentials=/etc/samba/smbcreds,file_mode=0700,dir_mode=0700,uid=1000
+DirectoryMode=0700
+
+[Install]
+WantedBy=multi-user.target

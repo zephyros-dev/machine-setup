@@ -1,0 +1,9 @@
+[Unit]
+Description=Server storage automount
+
+[Automount]
+Where=/var/mnt/server
+TimeoutIdleSec=0
+
+[Install]
+WantedBy=multi-user.target

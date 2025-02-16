@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "charliermarsh.ruff",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "ms-python.python",
+    "samuelcolvin.jinjahtml",
+    "signageos.signageos-vscode-sops",
+    "tamasfe.even-better-toml",
+  ]
+}
