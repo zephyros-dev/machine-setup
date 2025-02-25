@@ -3,6 +3,9 @@ Description=Jellyfin MPV Shim
 PartOf=graphical-session.target
 
 [Service]
+Environment="DISPLAY=:0"
+Environment="GNOME_SETUP_DISPLAY=:1"
+Environment="WAYLAND_DISPLAY=wayland-0"
 ExecStart=%h/.local/bin/jellyfin-mpv-shim
 Restart=on-failure
 
