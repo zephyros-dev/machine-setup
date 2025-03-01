@@ -51,13 +51,22 @@ subprocess.run(["brew", "install"] + cli_tools_list)
 
 # region: overlay tools
 print("Installing overlay tools...")
-overlay_list = ["fcitx5-unikey", "fcitx5-autostart"]
+overlay_list = ["fcitx5-unikey", "fcitx5-autostart", "goverlay"]
 subprocess.run(["rpm-ostree", "install"] + overlay_list)
 # endregion
 
 # region: install pip tools
 print("Installing pip tools...")
 subprocess.run(["pip", "install", "-r", f"{script_path}/requirements.txt"])
+# endregion
+
+# region: install gnome extensions
+print("Installing gnome extensions...")
+gnome_extension_list = [
+    "display-brightness-ddcutil@themightydeity.github.com",
+    "kimpanel@kde.org",
+]
+subprocess.run(["gext", "install"] + gnome_extension_list)
 # endregion
 
 # region: install flatpak applications
@@ -154,6 +163,22 @@ shutil.copyfile(
 )
 subprocess.run(["systemctl", "--user", "daemon-reload"])
 subprocess.run(["systemctl", "--user", "enable", "jellyfin-mpv-shim", "--now"])
+# endregion
+
+# region: Setup sunshine
+shutil.copyfile(
+    f"{script_path}/sunshine-custom.service",
+    Path.home() / ".config/systemd/user/sunshine-custom.service",
+)
+subprocess.run(["systemctl", "--user", "daemon-reload"])
+subprocess.run(["systemctl", "--user", "enable", "sunshine-custom", "--now"])
+# endregion
+
+# region: Setup mangohud
+shutil.copyfile(
+    f"{script_path}/MangoHud.conf",
+    Path.home() / ".config/MangoHud/MangoHud.conf",
+)
 # endregion
 
 # region: Setup smb

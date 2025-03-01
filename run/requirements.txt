@@ -1,2 +1,3 @@
+gnome-extensions-cli==0.10.5
 jellyfin-mpv-shim==2.8.0
 pystray==0.19.5
