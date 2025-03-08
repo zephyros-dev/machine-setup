@@ -7,8 +7,6 @@ After=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/sunshine
-# uncomment the line below if your system is reporting session initialization prematurely
-# ExecStartPre=/usr/bin/sleep 30 # wait  30s before starting sunshine
 ExecStartPre=xdg-screensaver lock
 Restart=on-failure
 RestartSec=5s
