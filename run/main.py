@@ -96,7 +96,7 @@ subprocess.run(
         "flatpak",
         "--user",
         "override",
-        "me.kozec.syncthingtk",
+        "io.github.martchus.syncthingtray",
         f"--filesystem={Path.home()}/.var/app/io.freetubeapp.FreeTube/config/FreeTube",
     ]
 )
