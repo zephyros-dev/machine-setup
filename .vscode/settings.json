@@ -1,6 +1,9 @@
 {
+    "editor.codeActionsOnSave": {
+        "source.fixAll.sortJSON": "always"
+    },
     "editor.formatOnSave": true,
-    "terminal.integrated.sendKeybindingsToShell": true,
-    "sops.creationEnabled": true,
     "sops.binPath": "/home/linuxbrew/.linuxbrew/bin/sops",
+    "sops.creationEnabled": true,
+    "terminal.integrated.sendKeybindingsToShell": true
 }

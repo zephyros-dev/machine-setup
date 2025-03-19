@@ -7,5 +7,6 @@
     "samuelcolvin.jinjahtml",
     "signageos.signageos-vscode-sops",
     "tamasfe.even-better-toml",
+    "richie5um2.vscode-sort-json",
   ]
 }
