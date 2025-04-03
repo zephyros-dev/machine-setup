@@ -3,6 +3,7 @@ from pathlib import Path
 import subprocess
 import json
 import os
+import configparser
 
 script_path = Path(os.path.realpath(__file__)).parent
 
@@ -72,6 +73,7 @@ subprocess.run(["gext", "install"] + gnome_extension_list)
 # region: install flatpak applications
 print("Installing flatpak applications...")
 flatpak_list = [
+    "com.github.wwmm.easyeffects",
     "com.heroicgameslauncher.hgl",
     "com.visualstudio.code",
     "io.freetubeapp.FreeTube",
@@ -88,6 +90,33 @@ flatpak_list = [
     "org.onlyoffice.desktopeditors",
 ]
 subprocess.run(["flatpak", "install", "--user", "--noninteractive"] + flatpak_list)
+
+startup_list = [
+    "com.github.wwmm.easyeffects",
+    "io.github.martchus.syncthingtray",
+    "org.keepassxc.KeePassXC",
+]
+for application in startup_list:
+    desktop_path = (
+        Path.home()
+        / ".local/share/flatpak/exports/share/applications"
+        / f"{application}.desktop"
+    ).resolve()
+    autostart_path = Path.home() / ".config/autostart" / f"{application}.desktop"
+    config = configparser.RawConfigParser()
+    config.optionxform = (
+        lambda option: option
+    )  # Need this to keep Uppercase key https://docs.python.org/3/library/configparser.html#mapping-protocol-access
+    config.read(desktop_path)
+    if application == "com.github.wwmm.easyeffects":
+        config["Desktop Entry"]["Exec"] = (
+            f"{config['Desktop Entry']['Exec']} --hide-window"
+        )
+    if application == "io.github.martchus.syncthingtray":
+        config["Desktop Entry"]["Exec"] = f"{config['Desktop Entry']['Exec']} --wait"
+    with open(autostart_path, "w") as configfile:
+        config.write(configfile, space_around_delimiters=False)
+
 # endregion
 
 # region: setup flatpak override
