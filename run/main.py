@@ -75,6 +75,7 @@ print("Installing flatpak applications...")
 flatpak_list = [
     "com.github.wwmm.easyeffects",
     "com.heroicgameslauncher.hgl",
+    "com.visualstudio.code.tool.podman",
     "com.visualstudio.code",
     "io.freetubeapp.FreeTube",
     "io.github.martchus.syncthingtray",
@@ -83,6 +84,8 @@ flatpak_list = [
     "io.mpv.Mpv",
     "org.aegisub.Aegisub",
     "org.equeim.Tremotesf",
+    "org.fcitx.Fcitx5.Addon.Unikey",
+    "org.fcitx.Fcitx5",
     "org.gimp.GIMP",
     "org.kde.krename",
     "org.keepassxc.KeePassXC",
