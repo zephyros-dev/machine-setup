@@ -97,6 +97,7 @@ subprocess.run(["flatpak", "install", "--user", "--noninteractive"] + flatpak_li
 startup_list = [
     "com.github.wwmm.easyeffects",
     "io.github.martchus.syncthingtray",
+    "org.fcitx.Fcitx5",
     "org.keepassxc.KeePassXC",
 ]
 for application in startup_list:
