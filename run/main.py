@@ -61,19 +61,23 @@ print("Installing pip tools...")
 subprocess.run(["pip", "install", "-r", f"{script_path}/requirements.txt"])
 # endregion
 
-# region: install gnome extensions
+# region: Gnome setup
 print("Installing gnome extensions...")
 gnome_extension_list = [
     "display-brightness-ddcutil@themightydeity.github.com",
     "kimpanel@kde.org",
 ]
 subprocess.run(["gext", "install"] + gnome_extension_list)
-# endregion
 
-# region: Setup dconf configuration
+print("Settings dconf...")
 dconf_dict = {"/org/gnome/desktop/interface/enable-animations": "false"}
 for key, value in dconf_dict.items():
     subprocess.run(["dconf", "write", key, value])
+
+print("Disable broken Gnome extensions...")
+gnome_extension_disable_list = ["just-perfection-desktop@just-perfection"]
+for extension in gnome_extension_disable_list:
+    subprocess.run(["gnome-extensions", "disable", extension])
 # endregion
 
 # region: install flatpak applications
