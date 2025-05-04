@@ -70,6 +70,12 @@ gnome_extension_list = [
 subprocess.run(["gext", "install"] + gnome_extension_list)
 # endregion
 
+# region: Setup dconf configuration
+dconf_dict = {"/org/gnome/desktop/interface/enable-animations": "false"}
+for key, value in dconf_dict.items():
+    subprocess.run(["dconf", "write", key, value])
+# endregion
+
 # region: install flatpak applications
 print("Installing flatpak applications...")
 flatpak_list = [
