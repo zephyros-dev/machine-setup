@@ -64,6 +64,7 @@ subprocess.run(["pip", "install", "-r", f"{script_path}/requirements.txt"])
 # region: Gnome setup
 print("Installing gnome extensions...")
 gnome_extension_list = [
+    "clipboard-indicator@tudmotu.com",
     "display-brightness-ddcutil@themightydeity.github.com",
     "kimpanel@kde.org",
 ]
