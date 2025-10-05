@@ -261,5 +261,4 @@ subprocess.run(
         "/etc/systemd/system/var-mnt-server.automount",
     ]
 )
-subprocess.run(["sudo", "systemctl", "enable", "var-mnt-server.automount", "--now"])
 # endregion
