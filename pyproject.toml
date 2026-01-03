@@ -7,7 +7,4 @@ requires-python = ">=3.12"
 dependencies = []
 
 [tool.uv]
-dev-dependencies = [
-    "ruff>=0.9.5",
-]
 python-preference = "only-managed"
