@@ -218,6 +218,7 @@ shutil.copyfile(
 )
 subprocess.run(["systemctl", "--user", "daemon-reload"])
 subprocess.run(["systemctl", "--user", "enable", "sunshine-custom", "--now"])
+subprocess.run(["systemctl", "--user", "disable", "sunshine-kms"])
 # endregion
 
 # region: Setup mangohud
