@@ -28,4 +28,4 @@ exec flatpak-spawn \
     --env=LD_LIBRARY_PATH=/app/lib \
     --app-path="$APP_PATH/files" \
     --usr-path="$RUNTIME_PATH/files" \
-    -- keepassxc-proxy "$@"
+    -- /app/bin/keepassxc-proxy "$@"
