@@ -217,8 +217,7 @@ shutil.copyfile(
     Path.home() / ".config/systemd/user/sunshine-custom.service",
 )
 subprocess.run(["systemctl", "--user", "daemon-reload"])
-subprocess.run(["systemctl", "--user", "enable", "sunshine-custom", "--now"])
-subprocess.run(["systemctl", "--user", "disable", "sunshine-kms"])
+subprocess.run(["systemctl", "--user", "enable", "sunshine-custom"])
 # endregion
 
 # region: Setup mangohud
