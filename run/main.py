@@ -76,7 +76,9 @@ for key, value in dconf_dict.items():
     subprocess.run(["dconf", "write", key, value])
 
 print("Disable broken Gnome extensions...")
-gnome_extension_disable_list = ["just-perfection-desktop@just-perfection"]
+gnome_extension_disable_list = [
+    "blur-my-shell@aunetx",
+]
 for extension in gnome_extension_disable_list:
     subprocess.run(["gnome-extensions", "disable", extension])
 # endregion
