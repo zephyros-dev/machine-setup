@@ -1,0 +1,11 @@
+[Unit]
+Description=Lock screen right after autologin
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/loginctl lock-session
+
+[Install]
+WantedBy=graphical-session.target
