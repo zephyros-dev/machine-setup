@@ -73,7 +73,11 @@ gnome_extension_list = [
 subprocess.run(["gext", "install"] + gnome_extension_list, check=False)
 
 print("Settings dconf...")
-dconf_dict = {"/org/gnome/desktop/interface/enable-animations": "false"}
+dconf_dict = {
+    "/org/gnome/desktop/interface/enable-animations": "false",
+    "/org/gnome/desktop/wm/keybindings/maximize": "['<Super>Up']",
+    "/org/gnome/desktop/wm/keybindings/unmaximize": "['<Super>Down']",
+}
 for key, value in dconf_dict.items():
     subprocess.run(["dconf", "write", key, value], check=False)
 
